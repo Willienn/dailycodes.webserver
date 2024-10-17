@@ -1,39 +1,27 @@
 "use client";
 
-import { FormEvent } from "react";
+import { Suspense, useState } from "react";
 import ServerStatus from "@/components/server-status";
+import { handleSubmit } from "@/lib/server-actions/whitelistrequest";
 
-export default function Home() {
-  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
+export default function Page() {
+  const [notification, setNotification] = useState<string | null>(null);
 
-    const formData = new FormData(e.target as HTMLFormElement);
-    const data = {
-      username: formData.get("username"),
-      email: formData.get("email"),
-      message: formData.get("message"),
-    };
-
+  async function onSubmit(formData: FormData) {
     try {
-      const response = await fetch("/api/whitelist", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(data),
-      });
-
-      const result = await response.json();
-      alert(result.message || result.error);
+      const message = await handleSubmit(formData);
+      setNotification(message);
     } catch (error) {
-      console.error("Erro:", error);
-      alert("Erro ao enviar a solicitação.");
+      setNotification("Erro ao enviar a solicitação.");
+      console.log(error);
     }
-  };
+  }
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-gray-900 text-white">
-      <ServerStatus />
+      <Suspense>
+        <ServerStatus />
+      </Suspense>
       <header className="text-center mb-8">
         <h1 className="text-6xl font-extrabold tracking-wider">
           Dailycodes SMP
@@ -52,7 +40,8 @@ export default function Home() {
           do servidor.
         </p>
 
-        <form className="space-y-4" onSubmit={handleSubmit}>
+        {/* Using client-side handler to invoke the server action */}
+        <form action={onSubmit} className="space-y-4">
           <div className="flex flex-col">
             <label htmlFor="username" className="block text-sm font-semibold">
               Nome de Usuário
@@ -98,6 +87,13 @@ export default function Home() {
             Solicitar Whitelist
           </button>
         </form>
+
+        {/* Show notification message */}
+        {notification && (
+          <div className="mt-4 p-4 bg-gray-700 rounded-md text-center">
+            <p>{notification}</p>
+          </div>
+        )}
 
         <p className="text-sm text-gray-400 mt-4 text-center">
           Após a solicitação, você receberá um e-mail de confirmação.
