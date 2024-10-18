@@ -12,7 +12,8 @@ export default function Page() {
       const message = await handleSubmit(formData);
       setNotification(message);
     } catch (error) {
-      setNotification("Erro ao enviar a solicitação.");
+      setNotification(`Erro ao enviar a solicitação. 
+ Motivo: ${error}`);
       console.log(error);
     }
   }
