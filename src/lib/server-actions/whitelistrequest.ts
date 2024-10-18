@@ -1,4 +1,5 @@
 "use server";
+
 export async function handleSubmit(formData: FormData): Promise<string> {
   const data = {
     username: formData.get("username")?.toString(),
@@ -26,6 +27,6 @@ export async function handleSubmit(formData: FormData): Promise<string> {
 
     return result.message || "Solicitação enviada com sucesso!";
   } catch (error) {
-    throw new Error(`Erro ao enviar a solicitação.${error}`);
+    throw new Error(`Erro ao enviar a solicitação. \n Reason: ${error}`);
   }
 }

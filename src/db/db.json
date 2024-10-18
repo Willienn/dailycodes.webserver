@@ -1,36 +1,3 @@
 {
-  "whitelistRequests": [
-    {
-      "username": "test",
-      "email": "test@willien.com",
-      "message": "dsasdasd",
-      "date": "2024-10-17T21:00:46.315Z",
-      "token": "cf104b1adb6ddbef5fac5368ec43e388efeed9cf3367d45ace39cea82ac03c69",
-      "confirmed": false
-    },
-    {
-      "username": "test",
-      "email": "test@willien.com",
-      "message": "dsasdasd",
-      "date": "2024-10-17T21:02:00.707Z",
-      "token": "3711a0a760d4e93e184e97fffb589265d8c778292b6f2af0158ed78d3d86a293",
-      "confirmed": false
-    },
-    {
-      "username": "dasdasd",
-      "email": "dasdas@dasdsa.com",
-      "message": "dasdasdasdsa",
-      "date": "2024-10-17T21:02:33.076Z",
-      "token": "044aa062f1a8efd2ef2708fe03d7f3d3fa21b92ad09a19e3cbe28ad63a97acc4",
-      "confirmed": false
-    },
-    {
-      "username": "dasdasd",
-      "email": "dasdas@dasdsa.com",
-      "message": "dasdasdasdsa",
-      "date": "2024-10-17T21:03:42.668Z",
-      "token": "a0e33a2cc7c248cf7c506386952793d2606fa1c4713ee93fffc51d433d70a487",
-      "confirmed": false
-    }
-  ]
+  "whitelistRequests": []
 }
