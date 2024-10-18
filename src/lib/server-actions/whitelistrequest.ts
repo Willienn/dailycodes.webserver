@@ -7,13 +7,16 @@ export async function handleSubmit(formData: FormData): Promise<string> {
   };
 
   try {
-    const response = await fetch("http://localhost:3001/api/whitelist", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
+    const response = await fetch(
+      `${process.env.NEXT_PUBLIC_BASE_API_URL}/whitelist`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
       },
-      body: JSON.stringify(data),
-    });
+    );
 
     const result = await response.json();
 

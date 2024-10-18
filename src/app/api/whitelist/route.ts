@@ -19,9 +19,9 @@ async function sendEmail(to: string, username: string, token: string) {
   });
 
   const confirmationUrl = new URL(
-    "http://localhost:3001/api/confirm-email",
-    process.env.NEXT_PUBLIC_BASE_URL,
-  ); // Use your base URL
+    "/confirm-email",
+    process.env.NEXT_PUBLIC_BASE_API_URL,
+  );
   confirmationUrl.searchParams.append("token", token);
 
   const mailOptions = {
