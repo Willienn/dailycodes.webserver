@@ -15,7 +15,6 @@ import {
   AlertTriangle,
 } from "lucide-react";
 
-import ServerStatus from "@/components/server-status";
 import { handleSubmit } from "@/lib/server-actions/whitelistrequest";
 
 // Tipos completos baseados na resposta da API
@@ -104,7 +103,7 @@ export default function Page() {
       const message = await handleSubmit(formData);
       setNotification(message);
     } catch (error) {
-      setNotification(`Erro ao enviar a solicitação. 
+      setNotification(`Erro ao enviar a solicitação.
  Motivo: ${error}`);
       console.log(error);
     }
