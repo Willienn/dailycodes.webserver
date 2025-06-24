@@ -230,26 +230,27 @@ export default function Page() {
               )}
               <span>Status do Servidor</span>
             </h2>
-
-            <div className="flex items-center space-x-2">
-              <button
-                onClick={() => setShowDebugInfo(!showDebugInfo)}
-                className="p-2 bg-gray-700 hover:bg-gray-600 rounded-lg transition-all duration-200 group"
-                title="Mostrar informações técnicas"
-              >
-                <Info className="w-5 h-5 text-gray-300 group-hover:text-white" />
-              </button>
-              <button
-                onClick={fetchServerStatus}
-                disabled={loading}
-                className="p-2 bg-gray-700 hover:bg-gray-600 disabled:opacity-50 rounded-lg transition-all duration-200 group"
-                title="Atualizar status"
-              >
-                <RefreshCw
-                  className={`w-5 h-5 text-gray-300 group-hover:text-white ${loading ? "animate-spin" : ""}`}
-                />
-              </button>
-            </div>
+            {process.env.NODE_ENV === "development" && (
+              <div className="flex items-center space-x-2">
+                <button
+                  onClick={() => setShowDebugInfo(!showDebugInfo)}
+                  className="p-2 bg-gray-700 hover:bg-gray-600 rounded-lg transition-all duration-200 group"
+                  title="Mostrar informações técnicas"
+                >
+                  <Info className="w-5 h-5 text-gray-300 group-hover:text-white" />
+                </button>
+                <button
+                  onClick={fetchServerStatus}
+                  disabled={loading}
+                  className="p-2 bg-gray-700 hover:bg-gray-600 disabled:opacity-50 rounded-lg transition-all duration-200 group"
+                  title="Atualizar status"
+                >
+                  <RefreshCw
+                    className={`w-5 h-5 text-gray-300 group-hover:text-white ${loading ? "animate-spin" : ""}`}
+                  />
+                </button>
+              </div>
+            )}
           </div>
 
           {/* Status Principal */}
