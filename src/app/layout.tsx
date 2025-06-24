@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://server.dailycodes.dev",
   },
-  title: "Dailycodes SMP | Servidor de Minecraft da Comunidade do Dailycodes",
+  title: "Dailycodes SMP",
   description:
     "Junte-se ao Dailycodes SMP, um servidor de Minecraft Vanilla++, criado para a mim e meus amigos. Explore, construa e faça amigos enquanto explora o modpack.",
   keywords: [
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
     locale: "pt_BR",
     url: "https://server.dailycodes.dev/",
     siteName: "Dailycodes SMP",
-    title: "Dailycodes SMP | Servidor de Minecraft da Comunidade do Dailycodes",
+    title: "Dailycodes SMP",
     description:
       "Junte-se ao Dailycodes SMP, um servidor de Minecraft Vanilla++, criado para a mim e meus amigos. Explore, construa e faça amigos enquanto explora o modpack.",
     images: [
@@ -41,7 +41,7 @@ export const metadata: Metadata = {
         url: "https://server.dailycodes.dev/images/OG.webp",
         width: 1098,
         height: 616,
-        alt: "Dailycodes SMP - Servidor de Minecraft da Comunidade do Dailycodes",
+        alt: "Dailycodes SMP",
       },
     ],
   },
